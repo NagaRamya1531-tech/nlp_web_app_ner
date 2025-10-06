@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>NLP APP | Login Page</title>
+</head>
+<body>
+    <form action="/perform_ner" method="post">
+        <label>Type Your Text Here </label><br>
+        <textarea name="ner_text"> </textarea><br>
+        <input type="submit" value="Perform NER"> 
+    </form>
+    
+    {% if response %}
+        {% for i in response['entities']: %}
+            <p>{{ i['name'] + " ==> " + i['category'] }}</p>
+        {% endfor %}
+    {% endif %}
+</body>
+
+</html> 
